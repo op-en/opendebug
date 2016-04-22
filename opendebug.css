@@ -1,0 +1,289 @@
+/* ########################################################
+
+        Open Energy Playground
+        Energy Dashboard 2
+        Marius Johansen
+        Interactive Institute - Swedish ICT
+        majo@tii.se
+        
+######################################################## */
+
+
+/* Element/Div styles ---------------------------------------*/
+
+html, body {
+    background-color: rgba(230,230,230,1);
+    height: 100%;
+    width: 100%;
+	font-family: Open Sans;
+ 	font-weight: 500;
+	font-size: 12px;
+    color:rgba(25,25,25,1);
+    text-shadow:none;
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;	
+	}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight:100;
+    padding:0px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.pageTitle{
+    border: 0px dotted black;
+    font-family: "Open Sans";
+    font-weight: 300;
+    font-style: normal;
+    font-size: 32px;
+    text-align:center;
+    padding:20px;
+}
+
+.banner{
+    color:#DD5345;
+    background-color:rgba(50,50,50,1);
+    text-align:center;
+    font-weight:600;
+    padding:10px;
+    font-size:10px;
+    letter-spacing:1px;
+    width:100%;
+    float:left;
+    clear:both;
+}
+
+
+.pageWrapper {
+    background-color: rgba(245,245,245,1);
+    background-repeat: no-repeat;
+    border: 0px dotted rgba(0,0,0,0);
+    box-shadow: 0px 0px 6px rgba(0,0,0,0.5);
+    padding-left:40px;
+    padding-right:40px;
+    width:980px;
+    position:relative;
+    height:auto;
+    overflow:hidden;
+    margin:auto;
+    box-sizing: border-box;	
+    }
+
+
+
+.dialWrapper{
+    border: 0px dotted black;
+    margin-right:20px;
+    margin-bottom:20px;
+    position:relative;
+    float:left;
+    opacity: 0;
+    height:200px;
+    width:200px;
+    padding:0px;
+    }
+
+.wattText{
+    border: 0px dotted black;
+    position:absolute;
+    float:left;
+    text-align:center;
+    font-size:10px;
+    font-weight:300;
+    font-family: 'Tahoma';
+    color:rgba(0,0,0,0.5);
+    top:145px;
+    left:0px;
+    height:50px;
+    width:100%;
+    padding:0px;
+    z-index:999;
+    }
+
+.toggleVis{
+    background-color:rgba(0,0,0,0);
+    background-image:url("images/toggleVisOff.png");
+    border-radius:0px;
+    height:30px;
+    width:30px;
+    float:left;
+    text-align:center;
+    margin-top:5px;
+    margin-right:10px;
+    -webkit-transition: background 0.5s;
+    -moz-transition: background 0.5s;
+    -o-transition: background 0.5s;
+    transition: background 0.5s;
+}
+
+
+.dialPointer{
+    position:absolute;
+    top:0px;
+    left:0px;
+    height:100%;
+    width:100%;
+    -webkit-transform-origin: 113 113;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%; 
+    }
+
+.dialIcon{
+    position:absolute;
+    top:50px;
+    left:50px;
+    height:50%;
+    width:50%;
+    }
+
+
+.rowWrapper {    
+    width:100%;
+    height:auto;
+    position:relative;
+    box-sizing: border-box;
+    clear:both;
+    float:left;
+    }
+
+
+.titleDiv {
+    font-family: Open Sans;
+    font-weight: 300;
+    font-size:28px;
+    color: rgba(62,53,49,1);
+    padding-top:5px;
+    padding-bottom:5px;
+    margin-top:6px;
+    margin-bottom:10px;
+    width:100%;
+    text-align:left;
+    cursor:pointer;
+    float:left;
+    clear:both;
+    box-sizing: border-box;
+}
+
+input{
+    border-radius:10px;
+    font-family: Open Sans, arial;
+    font-weight: 400;
+    font-size:16px;
+    text-align:center;
+    background: rgba(255,255,255,0.5);
+    width:100%;
+    height:50px;
+}
+
+.contentDiv {
+    padding-top:10px;
+    padding-bottom:10px;
+    margin:0px;
+    width:100%;
+    float:left;
+    clear:both;
+    box-sizing: border-box;
+}
+
+
+.dataObject{
+    border:1px dotted rgba(0,0,0,0.5);
+    border-radius:10px;
+    height:100px;
+    width:100px;
+    position:relative;
+    float:left;
+    margin-right:10px;
+    margin-bottom:10px;
+    text-align:center;
+}
+
+.columnFlexWrapper{
+    display: flex;
+    display: -webkit-flex; /* Safari */
+    flex-direction: row;
+    }
+
+
+.columnWrapper { 
+    border:0px dotted rgba(0,0,0,0.5);
+    flex: 1;
+    padding-top: 5px;
+    -webkit-flex: 1; /* Safari */
+    }
+
+
+.payloadDiv{
+    border:0px dotted rgba(0,0,0,0.5);
+    margin-right:20px;
+    flex:1.5;
+    -webkit-flex: 1.5;
+    padding-top:5px;  
+}
+
+
+.topicDiv{
+    border:0px dotted rgba(0,0,0,0.5);
+    margin-right:20px;
+    flex:1;
+    -webkit-flex: 1;
+    padding-top:5px;  
+}
+
+
+#debugDiv{
+    height:400px;
+    overflow:auto;
+}
+
+hr{ 
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px;
+    border-style: dotted;
+    border-color: rgba(0,0,0,0.5);
+    height:1px;
+    width:100%;
+}
+
+
+.footerDiv{
+    font-family: Tahoma;
+    font-size:9px;
+    font-weight:normal;
+    }
+
+.footerImg {
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+
+/* Link styles ---------------------------------------*/
+
+a:link {
+    color: rgba(50,50,50,1);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:visited {
+    color: rgba(50,50,50,1);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgba(50,50,50,1);
+    text-decoration: none;
+}
+
+a:active {
+    color: rgba(50,50,50,1);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
